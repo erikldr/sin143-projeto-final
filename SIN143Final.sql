@@ -37,6 +37,15 @@ CREATE TABLE `Noticias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
+--
+-- Estrutura da tabela Avaliacao
+--
+CREATE TABLE `Avaliacao` (
+  `ID` int NOT NULL,
+  `ID_noticia` int NOT NULL,
+  `ID_usuario` int NOT NULL,
+  `num_avaliacoes` int NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Estrutura da tabela `Usuarios`
@@ -46,11 +55,8 @@ CREATE TABLE `Usuarios` (
   `ID` int NOT NULL,
   `Nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Pontos` int NOT NULL
-<<<<<<< HEAD
-=======
-  'Senha' int NOT NULL
->>>>>>> 1e9ca758351016b8bff598c5d1b64a2dd208fa1a
+  'Senha' varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Pontos` int NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -61,13 +67,20 @@ CREATE TABLE `Usuarios` (
 -- Índices para tabela `Noticias`
 --
 ALTER TABLE `Noticias`
-  ADD PRIMARY KEY (`ID`);
+ADD PRIMARY KEY (`ID`);
+--
+-- Índices para tabela `Avaliacao`
+--
+ALTER TABLE `Avaliacao`
+ADD PRIMARY KEY (`ID`);
+FOREIGN KEY (`ID_noticia`) REFERENCES Noticias(`ID`);
+FOREIGN KEY (`ID_usuario`) REFERENCES Usuarios(`ID`);
 
 --
 -- Índices para tabela `Usuarios`
 --
 ALTER TABLE `Usuarios`
-  ADD PRIMARY KEY (`ID`);
+ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -77,13 +90,19 @@ ALTER TABLE `Usuarios`
 -- AUTO_INCREMENT de tabela `Noticias`
 --
 ALTER TABLE `Noticias`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `Avaliacao`
+--
+ALTER TABLE `Avaliacao`
+MODIFY `ID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `Usuarios`
 --
 ALTER TABLE `Usuarios`
-  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+MODIFY `ID` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
