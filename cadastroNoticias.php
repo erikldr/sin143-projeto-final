@@ -23,7 +23,7 @@
     <h1>Cadastro Notícias</h1>
 
     <div class="formContent">
-        <form id="form1" method="POST" action="form1.php">
+        <form id="cadastroNoticias" method="POST" action="cadastroNoticias.php">
             <p><b>Título:</b>
                 <input type="text" name="title">
             </p>

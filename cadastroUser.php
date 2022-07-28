@@ -23,7 +23,7 @@
     <h1>Cadastro Usuário</h1>
 
     <div class="formContent">
-        <form id="form1" method="POST" action="form1.php">
+        <form id="cadastroUser" method="POST" action="cadastroUser.php">
             <p><b>Nome:</b>
                 <input type="text" name="nome">
             </p>
