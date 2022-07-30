@@ -25,21 +25,20 @@
     <div class="formContent">
         <form id="cadastroUser" method="POST" action="cadastroUser.php">
             <p><b>Nome:</b>
-                <input type="text" name="nome">
+                <input type="text" name="f_nome">
             </p>
 
             <p><b>Email:</b>
-                <input type="text" name="email">
+                <input type="text" name="f_email">
             </p>
             <p><b>Senha:</b>
-                <input type="password" name="password">
+                <input type="password" name="f_senha">
             </p>
             <p><b>&nbsp;</b>
-                <input type="button" value="Enviar" onclick="document.getElementById('form1').submit();">
+                <input type="button" name="btn_env" value="enviar" onclick="document.getElementById().submit();">
             </p>
         </form>
         <div>
 
 </body>
-
-</html>
+<?php
