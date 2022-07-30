@@ -1,5 +1,5 @@
 <?php
-include('conexao.php');
+include('connect.inc.php');
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
 
