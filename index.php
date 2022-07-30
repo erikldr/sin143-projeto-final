@@ -8,7 +8,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     } else if(strlen($_POST['senha']) == 0) {
         echo "Preencha sua senha";
     } else {
-
+        //prevencao contra mysqlinjection
         $email = $mysqli->real_escape_string($_POST['email']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
@@ -59,7 +59,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
             <input type="password" name="senha">
     </p>
     <p>
-        <button type="submit">entrar</button>
+        <button type="submit">Entrar</button>
     </p>
     </form>
 </body>
