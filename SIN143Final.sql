@@ -44,7 +44,7 @@ CREATE TABLE `Avaliacao` (
   `ID` int NOT NULL,
   `ID_noticia` int NOT NULL,
   `ID_usuario` int NOT NULL,
-  `num_avaliacoes` int NOT NULL,
+  `num_avaliacoes` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -56,7 +56,7 @@ CREATE TABLE `Usuarios` (
   `Nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   'Senha' varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Pontos` int NOT NULL,
+  `Pontos` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 

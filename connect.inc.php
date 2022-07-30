@@ -1,14 +1,12 @@
 <?php
-//Configurações da conexão
-$servername = "localhost";
-$username = "clausius";
-$password = "clausiuspwd";
-$dbname = "sin143_laravel";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$usuario = 'root';
+$senha = '';
+$database = 'projeto';
+$host = 'localhost';
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$mysqli = new mysqli($host, $usuario, $senha, $database);
+
+if($mysqli->error) {
+    die("Falha ao conectar ao banco de dados: " . $mysqli->error);
 }
