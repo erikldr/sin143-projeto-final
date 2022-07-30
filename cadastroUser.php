@@ -1,44 +1,45 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Cadastro | User</title>
-    <style>
-        input {
-            float: right;
-        }
-
-        .formContent {
-            width: 280px;
-        }
-
-        select {
-            float: right;
-            width: 185px;
-        }
-    </style>
+    <title>Cadastro de usuario</title> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="form.css" rel="stylesheet">
 </head>
-
 <body>
-    <h1>Cadastro Usuário</h1>
+    <div class="form_cd">
+        <?php
+            include('connect.inc.php');
 
-    <div class="formContent">
-        <form id="cadastroUser" method="POST" action="cadastroUser.php">
-            <p><b>Nome:</b>
-                <input type="text" name="f_nome">
-            </p>
+            if(isset($_POST['nome']) || isset($_POST['email']) || isset($_POST['senha'])) {
+            
+                if(strlen($_POST['email']) == 0) {
+                    echo "Preencha seu e-mail";
+                } else if(strlen($_POST['senha']) == 0) {
+                    echo "Preencha sua senha";
+                } else if(strlen($_POST['nome']) == 0) {
+                    echo "Preencha seu nome";
+                } else {
+                    $nome = $mysqli->real_escape_string($_POST['nome']);
+                    $email = $mysqli->real_escape_string($_POST['email']);
+                    $senha = $mysqli->real_escape_string($_POST['senha']);
 
-            <p><b>Email:</b>
-                <input type="text" name="f_email">
-            </p>
-            <p><b>Senha:</b>
-                <input type="password" name="f_senha">
-            </p>
-            <p><b>&nbsp;</b>
-                <input type="button" name="btn_env" value="enviar" onclick="document.getElementById().submit();">
-            </p>
+                    $sql_code = "INSERT INTO usuarios(usuario_id, nome, email, senha, pontos) VALUES ('NULL', '$nome', '$email', '$senha', 'NULL')";
+                    $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+                    echo"resultado da conexao: ".$sql_query.".";
+                }
+            }
+            //header("Location: cadastroUser.php");
+        ?>
+        <h2>Cadastro de usuario</h2>
+        <form method="POST">
+            <div><input type="text" name="nome" placeholder="Nome"></div>
+            <div><input type="text" name="email" placeholder="E-mail"></div>
+            <div><input type="password" name="senha" placeholder="Senha"></div>
+            <div><input type="submit" name="acao" value="Cadastrar"></div>
+            <div><input type="hidden" name="form" value="f_form"></div>
         </form>
-        <div>
-
+    </div>
 </body>
-<?php
+</html>

@@ -25,7 +25,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                 session_start();
             }
 
-            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['usuario_id'] = $usuario['usuario_id'];
             $_SESSION['nome'] = $usuario['nome'];
 
             header("Location: painel.php");
@@ -42,25 +42,26 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>Login</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <link href="form.css" rel="stylesheet">
 </head>
 <body>
-    <h1> Entre com login e senha </h1>
-    <form action ="" method="POST">
-        <p>
-            <label> E-mail </label>
-            <input type="text" name="email">
-        </p>
-        <p>
-            <label> Senha </label>
-            <input type="password" name="senha">
-    </p>
-    <p>
-        <button type="submit">Entrar</button>
-    </p>
-    </form>
+    <div class="form_cd">
+        <h2> Entre com login e senha </h2>
+        <form method="POST">
+            <div><input type="text" name="email" placeholder="E-mail"></div>
+            <div><input type="password" name="senha" placeholder="Senha"></div>
+            <div><input type="submit" name="acao" value="Entrar"></div>
+            <div><input type="hidden" name="form" value="f_form"></div>
+        </form>
+        <form action="cadastroUser.php">
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
 </body>
 </html>
+
+
