@@ -30,7 +30,6 @@
                     echo"resultado da conexao: ".$sql_query.".";
                 }
             }
-            //header("Location: cadastroUser.php");
         ?>
         <h2>Cadastro de usuario</h2>
         <form method="POST">
